@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<canvas id="avatar"></canvas>
+<script type="text/javascript">
+
+
+    var img = new Image();
+    img.src = 'avatar.jpeg'
+    var canvas = document.getElementById('avatar');
+    canvas.width = 360;
+    canvas.height = 360;
+    var context = canvas.getContext('2d');
+    context.drawImage(img, 0, 0,360,360)
+    context.beginPath();
+    clearArc(180,180,180,context,true);
+</script>
+</body>
+</html>
