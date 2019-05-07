@@ -1,7 +1,9 @@
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 const path = require('path');
 module.exports = {
   mode: 'development',
-  entry: path.join(__dirname, 'app', 'index'),
+  entry: path.join(__dirname, 'src', 'index'),
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -10,7 +12,7 @@ module.exports = {
     rules: [{
       test: /.jsx?$/,
       include: [
-        path.resolve(__dirname, 'app')
+        path.resolve(__dirname, 'src')
       ],
       exclude: [
         path.resolve(__dirname, 'node_modules'),
@@ -25,5 +27,15 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     publicPath: path.join('/dist/')
-  }
+  },
+  plugins: [
+    new UglifyJsPlugin({
+      uglifyOptions: {
+          mangle: false,
+          output: {
+              beautify: true,
+          },
+      }
+    })
+  ]
 };
