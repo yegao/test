@@ -1,1 +1,4 @@
-export const a = "AAAAAAAAAA";
+const a = "AAAAAAAAAA"
+module.export = {
+    a
+}
